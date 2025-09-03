@@ -1,0 +1,113 @@
+Questions(ddl+dml)
+a)Select product_name ,category_name,supplier name from products p,categories c,
+suppliers s where p.category_id=c.category_id and p.supplier_id =s.supplier_id
+
+b) Select * from products where stock_quantity<5;
+
+c) Alter Table products add discount_percent Int default 0;
+
+d)Update products SET price =price*0.85
+where category_id=(Select category_if from categories where category_name='electronics");
+
+Questions(Aggregate,filetring,sorting,grouping)
+
+e) Select count(*) from products ;
+
+f) Select Avg(price) as Avg from products;
+
+g) Select max(price ) from products p,categories c 
+where c.category_name='electronics';
+
+ Select min(price ) from products p,categories c 
+where c.category_name='electronics';
+
+h) Select category_id ,count(*)from products group by category_id;
+
+i)Select supplier_name from suppliers s,products p where p.price >50 and p.price <200;
+
+j)SELECT* from products p where p.category_id in(1,3);
+
+k) Select sum(stock_quantity) from products p group by p.categpry _id having count(product_id)>1;
+
+l)Select supplier_id ,Avg(price) as avgs from products group by supplier_id having Avg(price)>100;
+
+m) Select *form products order by price desc;
+
+n) Select category_id,Sum(price*stock_quantity)as total from products group by category_id order by total desc
+
+Questions(Joins)
+
+a)Select p.product_name,c.category_name from prducts p join categories c 
+on p.category_id=c.category_id;
+
+b) Select p.product_name ,c.category_name from products p left join categories c on p.category_id=c.category_id
+
+c) Select c.category_id,c.category_name ,count(p.product_id) from categorues c left join products p on c,category_id=p.category_id
+group by c,category_id;
+
+d)Select p.product name,s.supplier_name from products p left join suppliers s on p.supplier_id=s.supplier_id
+
+e)  Select s.supplier_name,p.product_name from products p right join
+suppliers s on p.supplier_id=s.supplier_id;
+
+f)Select s.supplier_name,p.product_name from products p left join
+suppliers s on p.supplier_id=s.supplier_id;
+
+g)Select c.category_name ,s.supplier_name fromproducts p 
+join categories c on c.category-id=p.category_id
+Join suppliers s on p.supplier_id=s.supplier_id;
+
+h)Select c.category_Name,s.suppliers_name from suppliers s full
+join products p on s.supplier_id=p.supplier_id full 
+join categories c on p.category_id=c.category_id
+
+i) Select p.product_name,s.contact_email from products p join suppliers s
+on p.supplier_id=s.supplier_id where s.contact_email is not null;
+
+j) select c.category_name from categories c 
+join products p on c.category_id=p.proudct_id 
+join suppliers s on p.supplier_id =s.supplier_id
+where s.supplier_name='global goods';
+
+functions
+1)Delimiter$$
+Create function total_stock(sup_name varchar)
+Returns int
+Deterministic 
+Begin
+ Declare ans INT;
+Select Sum(stock_quantity) INTO ans from product p join suppliers s
+on p.supplier_id=s.supplier_id
+where 
+s.supplier_name =sup_name
+return asn
+END;
+DELIMITER$$;
+
+2))Delimiter$$
+Create function fun()
+Returns varhcar
+Deterministic 
+Begin
+  Declare name varchar;
+Select product_name from products p into name join suppliers 
+on p.supplier_id=s.supplier_id
+where s.contact_emails-"sales@globalgoods.com" and
+p.category_id=1;
+return asn
+END;
+DELIMITER$$;
+
+3)Delimiter$$
+Create procedure get_product()
+Begin
+Select p.product_name from products p ;
+END$$;
+delimiter$$;
+4)Delimiter$$
+Create procedure get_product(IN CAT_ID INT,OUT QUANT INT)
+Begin
+Select Sum(p.stock_quantity)INTO quant from products p where
+p.category_id=cat_id;s;
+END$$;
+delimiter$$;
