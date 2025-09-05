@@ -1,0 +1,28 @@
+Administrator@4c463a42d0375bb MINGW64 /d/git_assignment
+$ git config --global user.email "rishabhsharma2076@gmail.com"
+
+Administrator@4c463a42d0375bb MINGW64 /d/git_assignment
+$ git init
+Initialized empty Git repository in D:/git_assignment/.git/
+
+1)Administrator@4c463a42d0375bb MINGW64 /d/git_assignment (master)
+$ git add -A
+
+2)git add dept.txt(after creating filr)
+   git restore employee
+    git commit -m "all files"
+3)git remote add origin "https://github.com/Rishabh3113/git_learning.git"
+   git push origin master
+   4) git pull origin master
+5)git add .
+  git commit
+  git push origin master
+6)git rm student
+   git commit -m "deleted'
+   git push origin master
+
+
+   
+
+
+
