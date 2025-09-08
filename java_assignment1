@@ -1,0 +1,43 @@
+package Amdocs_1;
+class shape{
+	int side;
+	int length;
+	int breadth;
+	long radius;
+	public shape(){
+		
+	}
+	public shape(int side) {
+		this.side=side;
+		System.out.print(side*side);
+	}
+	public shape(int length,int breadth) {
+		this.length=length;
+		this.breadth=breadth;
+		System.out.print(length*breadth);
+	}
+	public shape(long radius) {
+		this.radius=radius;
+	
+		System.out.print(22/7*radius*radius);
+		  
+	}
+	public void rhombus(int p,int q) {
+		System.out.print(p*q/2);
+	}
+	public void rhombus(double height,double base) {
+		System.out.print((height*base)/2);
+	}
+}
+
+public class Asiignment_1 {
+	public static void main (String[]args) {
+		shape s=new shape();
+		shape s1=new shape(5);
+		shape s2=new shape(40);
+		shape s3=new shape(6,5);
+		s.rhombus(9, 9);
+		
+		
+	}
+}
