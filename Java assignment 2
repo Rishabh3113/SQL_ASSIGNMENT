@@ -1,0 +1,80 @@
+package collections.training;
+ 
+import java.util.Iterator;
+import java.util.LinkedList;
+ 
+public class assignmentOne {
+	public static void main(String[] args){
+		LinkedList ls = new LinkedList();
+		ls.add("May");
+		ls.add("June");
+		ls.add("July");
+		ls.add("August");
+		ls.add("April");
+		ls.add("November");
+ 
+		ls.addLast("December");
+		ls.addFirst("January");
+ 
+		ls.add(2, "March");
+		ls.add(1, "Febuary");
+		ls.add(8, "September");
+		ls.add(9, "October");
+ 
+		ls.remove("April");
+		ls.add(ls.indexOf("March") + 1, "April");
+ 
+		ls.remove("May");
+		ls.add(ls.indexOf("April") + 1, "May");
+ 
+		System.out.println("" + ls);
+ 
+		Iterator itr = ls.iterator();
+		int index = 0;
+		while(itr.hasNext()){
+			if(index%2 == 0){
+				System.out.print(itr.next() + " ");
+			}else{
+				itr.next();
+			}
+			index += 1;
+		}
+		System.out.println();
+ 
+		itr = ls.iterator();
+		index = 0;
+		while(itr.hasNext()){
+			if(index%2 != 0){
+				System.out.print(itr.next() + " ");
+			}else{
+				itr.next();
+			}
+			index += 1;
+		}
+		System.out.println();
+ 
+		itr = ls.iterator();
+		while(itr.hasNext()){
+			System.out.print(itr.next() + " ");
+		}
+		System.out.println();
+ 
+		System.out.println(ls.peekFirst() + " " + ls.peekLast());
+		System.out.println(ls.remove(11));
+ 
+		LinkedList winterMonths = new LinkedList();
+		winterMonths.add("October");
+		winterMonths.add("November");
+		winterMonths.add("December");
+ 
+		Iterator winter = winterMonths.iterator();
+		boolean hasWinter = false;
+		while(winter.hasNext()){
+			hasWinter = ls.contains(winter.next()) || hasWinter;
+		}
+		System.out.println(hasWinter);
+ 
+		System.out.println(ls.peekFirst() + " " + ls.peekLast());
+		System.out.println(ls.pollFirst() + " " + ls.pollLast());
+	}
+}
