@@ -1,0 +1,26 @@
+# Step 1: Switch to dev branch
+git checkout dev
+
+# Step 2: Fetch latest changes from remote
+git fetch origin
+
+# Step 3: Merge latest main/master into dev
+git merge origin/main   # or origin/master depending on the repo
+
+git add .
+git commit -m "Resolved conflicts while syncing dev with main"
+
+git checkout -b feature3
+# Stage the changes
+git add .
+
+# Commit your feature
+git commit -m "Implemented feature3"
+
+# Switch to dev branch
+git checkout dev
+
+# Merge feature3 into dev
+git merge feature3
+git add .
+git commit -m "Resolved merge conflicts between feature3 and dev"
